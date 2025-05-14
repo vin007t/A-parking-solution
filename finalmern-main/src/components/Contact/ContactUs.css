@@ -1,0 +1,247 @@
+:root {
+  --primary: #0f4c81;
+  --primary-dark: #0d3d66;
+  --secondary: #2a9d8f;
+  --secondary-dark: #247b71;
+  --text-primary: #2d3748;
+  --text-secondary: #4a5568;
+  --success: #059669;
+  --error: #dc2626;
+  --background: #57aee8;
+  --white: #f0f4f4;
+}
+
+.contact-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 90px 20px;
+  background-color: var(--background);
+  min-height: 100vh;
+}
+
+.contact-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.page-container{
+  color: var(--secondary)
+}
+.contact-header h1 {
+  font-size: 2.5rem;
+  color: var(--primary);
+  margin-bottom: 16px;
+  font-weight: 700;
+}
+
+.contact-header p {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+}
+
+.contact-content {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 40px;
+  background: var(--white);
+  border-radius: 16px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.contact-info {
+  background: var(--primary);
+  color: var(--white);
+  padding: 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-info::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  opacity: 0.1;
+}
+
+.contact-info h2 {
+  font-size: 1.5rem;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.info-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 24px;
+  position: relative;
+}
+
+.info-icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 16px;
+  color: var(--secondary);
+}
+
+.info-text {
+  flex: 1;
+}
+
+.info-item .label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--secondary);
+}
+
+.info-item .hours {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.form-container {
+  padding: 40px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid #89acda;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  color: var(--text-primary);
+  background-color: var(--white);
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--secondary);
+  box-shadow: 0 0 0 3px rgba(42, 157, 143, 0.1);
+}
+
+input.error,
+textarea.error {
+  border-color: var(--error);
+}
+
+.error-message {
+  color: var(--error);
+  font-size: 0.875rem;
+}
+
+button {
+  background: var(--secondary);
+  color: var(--white);
+  padding: 14px 28px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+button:hover:not(:disabled) {
+  background: var(--secondary-dark);
+  transform: translateY(-1px);
+}
+
+button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+button.submitting {
+  position: relative;
+  padding-right: 48px;
+}
+
+button.submitting::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  border: 2px solid var(--white);
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+.success-message {
+  text-align: center;
+  padding: 40px 0;
+}
+
+.success-message h3 {
+  font-size: 1.8rem;
+  color: var(--success);
+  margin-bottom: 16px;
+}
+
+.success-message p {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+}
+
+.submit-error {
+  color: var(--error);
+  text-align: center;
+  padding: 12px;
+  background: #fef2f2;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+@keyframes spin {
+  to {
+    transform: translateY(-50%) rotate(360deg);
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-content {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-container {
+    padding: 20px;
+  }
+
+  .contact-header h1 {
+    font-size: 2rem;
+  }
+
+  .contact-info,
+  .form-container {
+    padding: 30px;
+  }
+}
